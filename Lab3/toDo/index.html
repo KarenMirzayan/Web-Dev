@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My To Do List</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: rgb(229, 178, 83);
+            }
+            .todo {
+                font-family: inherit;
+                width: 100vw;
+                max-width: 600px;
+                margin: 40px auto;
+                box-sizing: border-box;
+                background-color: white;
+                border-radius: 20px;
+            }
+            .top {
+                padding: 20px;
+                display: flex;
+                align-items: row;
+                border-bottom: 2px solid rgb(229, 178, 83);
+            }
+            .top h2 {
+                margin: 0;
+                padding: 0;
+                width: 22%;
+                font-family: 'Kunstler Script', cursive;
+                /* font-style: italic; */
+                font-size: 1.75em;
+                cursor: default;
+            }
+            .add {
+                width: 78%;
+                display: flex;
+                align-items: row;
+            }
+            #newItem {
+                width: 80%;
+                padding: 0;
+                margin: 0;
+                padding-left: 10px;
+                border: 2px solid rgb(229, 178, 83);
+                border-radius: 20px;
+            }
+            #newItem:focus {
+                outline: none;
+            }
+            #newItem::placeholder {
+                font-family: inherit;
+                font-size: 1em;
+                color: black;
+                font-style: italic;
+                opacity: 0.7;
+            }
+            .add button {
+                width: 20%;
+                padding: 0;
+                margin: 0;
+                background-color: rgb(229, 178, 83);
+                border: none;
+                border-radius: 30px;
+                margin-left: 10px;
+                font-weight: 600;
+                color: white;
+                cursor: pointer;
+            }
+            .list {
+                padding: 10px 0 20px;  
+            }
+            .list ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                margin-top: 5px;
+                border-top: 1px solid rgb(229, 178, 83);
+            }
+            .list ul li {
+                display: flex;
+                padding: 10px 0 10px 20px;
+                border-bottom: 1px solid rgb(229, 178, 83);
+                align-items: center;
+            }
+            .list ul li input[type="checkbox"] {
+                margin: 0;
+                margin-right: 10px;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+            .list ul li input[type="checkbox"]:checked {
+                background-color: rgb(229, 178, 83);
+            }
+
+            label.checked {
+                text-decoration: line-through;
+                color: rgb(229, 178, 83);
+            }
+            .list ul li label {
+                margin: 0;
+                padding: 0;
+                font-style: italic;
+                display: flex;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+            .list ul li span {
+                margin-right: 10px;
+                font-size: 1.5em;
+                color: rgb(229, 178, 83);
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="todo">
+            <div class="top">
+                <h2>To Do List</h2>
+                <div class="add">
+                    <input type="text" id="newItem" placeholder="New Item">
+                    <button onclick="addTask()">Add</button>
+                </div>
+            </div>
+            <div class="list" id="list-container">
+                <ul>
+                    
+                </ul>
+            </div>
+        </div>
+        <script>
+            const inputBox = document.getElementById('newItem');
+            const listContainer = document.getElementById('list-container');
+
+            function addTask() {
+                if (inputBox.value === '') {
+                    alert('Please enter a task');
+                }
+                else {
+                    let li = document.createElement('li');
+                    li.innerHTML = `
+                        <input type="checkbox" id="item${listContainer.children[0].children.length + 1}">
+                        <label for="item${listContainer.children[0].children.length + 1}">${inputBox.value}</label>
+                        <span onclick="removeTask(this)">&times;</span>
+                    `;
+                    listContainer.children[0].appendChild(li);
+                }
+                inputBox.value = '';
+                saveData();
+            }
+
+            listContainer.addEventListener("click", function(event) {
+                if (event.target.nodeName === "INPUT" && event.target.type === "checkbox") {
+                    const checkbox = event.target;
+                    checkbox.classList.toggle("checked"); // Toggle the "checked" class on the checkbox
+                    checkbox.nextElementSibling.classList.toggle("checked"); // Toggle the "checked" class on the label
+                    saveData();
+                }
+                else if (event.target.nodeName === "SPAN") {
+                    removeTask(event.target);
+                    saveData();
+                }
+            })
+
+            function removeTask(task) {
+                task.parentElement.remove();
+            }
+
+            function saveData() {
+                localStorage.setItem("data", listContainer.innerHTML);
+            }
+
+            function showTasks() {
+                listContainer.innerHTML = localStorage.getItem("data");
+                let checkboxes = listContainer.querySelectorAll('input[type="checkbox"]');
+                let labels = listContainer.querySelectorAll('label');
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (labels[i].classList.contains('checked')) {
+                        checkboxes[i].setAttribute('checked', true);
+                    }
+                    else {
+                        checkboxes[i].removeAttribute('checked');
+                    }
+                }
+            }
+            showTasks();
+        </script>
+    </body>
+</html>
