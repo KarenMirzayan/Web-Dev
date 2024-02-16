@@ -1,0 +1,28 @@
+<div class="products">
+    <div *ngFor="let product of products">
+        <div class="card item{{product.id}}">
+            <div class="product-card">
+                <div class="card-img">
+                    <img [src]="product.image" [alt]="product.name" />
+                </div>
+                <div class="card-text">
+                    <h2>{{ product.name }}</h2>
+                    <h3>{{ product.description }}</h3>
+                    <div class="card-bot">
+                        <share-buttons [theme]="'material-dark'"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        [autoSetMeta]="false" 
+                        [include]="['whatsapp', 'telegram']"
+                        [url]="product.link"
+                        [show]="2"
+                        [autoSetMeta]="false"></share-buttons>
+                        <div class="rating">
+                            <p>Rating: {{product.rating}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
