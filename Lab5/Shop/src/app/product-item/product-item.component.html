@@ -1,0 +1,29 @@
+<div class="card item{{product.id}}">
+    <div class="product-card">
+        <div class="card-img">
+            <img [src]="product.image" [alt]="product.name" />
+            <button class="btn" (click)="delete()"><i class="fa fa-trash"></i></button>
+            <div class="likes">
+                <button class="btn" (click)="like()"><i class="fa fa-heart" [class.product-like]="product.liked"></i></button>
+                <p>{{product.likes}}</p>
+            </div>
+        </div>
+        <div class="card-text">
+            <a [href]="product.link"><h2>{{ product.name }}</h2></a>
+            <h3>{{ product.description }}</h3>
+            <div class="card-bot">
+                <share-buttons [theme]="'material-dark'"
+                target="_blank"
+                rel="noopener noreferrer"
+                [autoSetMeta]="false" 
+                [include]="['whatsapp', 'telegram']"
+                [url]="product.link"
+                [show]="2"
+                [autoSetMeta]="false"></share-buttons>
+                <div class="rating">
+                    <p>Rating: {{product.rating}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

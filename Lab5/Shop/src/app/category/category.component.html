@@ -1,0 +1,6 @@
+<div class="product-categories">
+    <div class="category" *ngFor="let category of categories">
+        <button class="category-btn" (click)="toggle(category.id)"> {{ category.name }}</button>
+        <app-product-list [products]="category.products" *ngIf="category.isOpen"></app-product-list>
+    </div>
+</div>

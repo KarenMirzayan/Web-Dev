@@ -1,0 +1,5 @@
+<div class="items">
+    <div class="item" *ngFor="let product of products">
+        <app-product-item [product]="product" (del)="remove($event)"></app-product-item>
+    </div>
+</div>
