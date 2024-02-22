@@ -14,7 +14,6 @@ import { ProductListComponent } from '../product-list/product-list.component';
 })
 export class CategoryComponent {
   categories: Category[] = [...categories];
-  isOpen = false;
   toggle(id: number) {
     this.categories = this.categories.map(category => {
       if (category.id === id) {
