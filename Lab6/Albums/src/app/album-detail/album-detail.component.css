@@ -1,0 +1,55 @@
+h3 {
+    color: #369;
+    font-size: 250%;
+    line-height: 2em;
+    margin-left: 10px;
+}
+h4 {
+    color: #369;
+    font-size: 200%;
+    margin: 0 0 20px 10px;
+}
+
+a{
+    font-size: 150%;  
+}
+
+.photo-link {
+    margin-left: 10px;
+}
+
+a:visited {
+    color: #0000EE;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: thistle;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+label {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+fieldset {
+    border-color: thistle;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#title {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+input {
+    font-size: 20px;
+    margin-left: 10px;
+}

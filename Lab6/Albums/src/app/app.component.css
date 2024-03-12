@@ -1,0 +1,14 @@
+.head {
+    background-color: thistle;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 100px;
+    margin: 0px;
+
+}
+.head li {
+    list-style-type: none;
+    padding: 20px;
+    font-size: 40px;
+}
