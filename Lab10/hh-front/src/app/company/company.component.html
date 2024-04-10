@@ -1,0 +1,21 @@
+<div class="company-header">
+    <h1>{{ company.name }}</h1>
+    <h2> {{ company.description }}</h2>
+    <p>{{ company.city }}</p>
+    <p>{{ company.address }}</p>
+</div>
+
+<div class="vacancies">
+    <h2>Vacancies</h2>
+    <ul *ngIf="loaded; else loading">
+        <li *ngFor="let vacancy of vacancies">
+                <h2>{{ vacancy.name }}</h2>
+                <h3>{{ vacancy.description }}</h3>
+                <p>{{ vacancy.salary }}</p>
+        </li>
+    </ul>
+
+    <ng-template #loading>
+        <p>Vacancies are loading...</p>
+    </ng-template>
+</div>
